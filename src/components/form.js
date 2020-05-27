@@ -3,7 +3,7 @@ import { calcularTotal } from '../helpers';
 
 const Form = (props) => {
 
-  let {cantidad, setCantidad, plazo, setPlazo, total, setTotal} = props;
+  let {cantidad, setCantidad, plazo, setPlazo, setTotal, setCargando } = props;
 
   // Definir State
   const [error, setError] = useState(false)
@@ -16,8 +16,16 @@ const Form = (props) => {
       return; // Para que no continue a la siguiente linea
     }
     setError(false )
-    let totalPrestamo = calcularTotal(cantidad, plazo)
-    setTotal(totalPrestamo);
+
+    // Habilitar Spinner
+    setCargando(true)
+
+    setTimeout(() => {
+      let totalPrestamo = calcularTotal(cantidad, plazo)
+      setTotal(totalPrestamo);
+      // deshabilitar Spinner
+      setCargando(false)
+    }, 3000);
   }
 
   return (
