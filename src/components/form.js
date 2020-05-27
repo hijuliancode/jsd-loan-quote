@@ -9,11 +9,12 @@ const Form = ({cantidad, setCantidad, plazo, setPlazo}) => {
   const calcularPrestamo = e => {
     e.preventDefault()
     console.log('Calculando...');
-    if( cantidad === 0 || plazo === '') {
+    if( !cantidad || plazo === '') {
       setError(true)
-    } else {
-      setError(false )
+      return; // Para que no continue a la siguiente linea
     }
+    setError(false )
+
   }
 
   return (
@@ -51,6 +52,11 @@ const Form = ({cantidad, setCantidad, plazo, setPlazo}) => {
           </div>
         </div>
       </form>
+      { (error) ?
+          <p className="error">Todos los campos son obligatorios</p>
+        : null
+      }
+      
     </Fragment>
    );
 }
