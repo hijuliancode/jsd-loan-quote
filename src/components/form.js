@@ -3,7 +3,7 @@ import { calcularTotal } from '../helpers';
 
 const Form = (props) => {
 
-  const {cantidad, setCantidad, plazo, setPlazo, total, setTotal} = props;
+  let {cantidad, setCantidad, plazo, setPlazo, total, setTotal} = props;
 
   // Definir State
   const [error, setError] = useState(false)
