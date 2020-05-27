@@ -1,9 +1,11 @@
 import React, { Fragment } from 'react';
 
-const Form = (props) => {
+const Form = ({cantidad, setCantidad}) => {
+
   return (
     <Fragment>
       <form>
+<p>{cantidad}</p>
         <div className="row">
           <div>
             <label>Cantidad Prestamo</label>
@@ -11,6 +13,7 @@ const Form = (props) => {
               className="u-full-width"
               type="number"
               placeholder="Ejemplo: 3000"
+              onChange={ e => setCantidad( parseInt(e.target.value) ) }
             />
           </div>
           <div>
