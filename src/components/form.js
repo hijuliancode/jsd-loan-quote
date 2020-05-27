@@ -1,7 +1,9 @@
 import React, { Fragment, useState } from 'react';
 import { calcularTotal } from '../helpers';
 
-const Form = ({cantidad, setCantidad, plazo, setPlazo}) => {
+const Form = (props) => {
+
+  const {cantidad, setCantidad, plazo, setPlazo, total, setTotal} = props;
 
   // Definir State
   const [error, setError] = useState(false)
@@ -14,9 +16,8 @@ const Form = ({cantidad, setCantidad, plazo, setPlazo}) => {
       return; // Para que no continue a la siguiente linea
     }
     setError(false )
-    let total = calcularTotal(cantidad, plazo)
-    console.log(total);
-    
+    let totalPrestamo = calcularTotal(cantidad, plazo)
+    setTotal(totalPrestamo);
   }
 
   return (
@@ -58,7 +59,6 @@ const Form = ({cantidad, setCantidad, plazo, setPlazo}) => {
           <p className="error">Todos los campos son obligatorios</p>
         : null
       }
-      
     </Fragment>
    );
 }
