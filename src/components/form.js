@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import { calcularTotal } from '../helpers';
 
 const Form = ({cantidad, setCantidad, plazo, setPlazo}) => {
 
@@ -14,7 +15,7 @@ const Form = ({cantidad, setCantidad, plazo, setPlazo}) => {
       return; // Para que no continue a la siguiente linea
     }
     setError(false )
-
+    calcularTotal(cantidad, plazo)
   }
 
   return (
