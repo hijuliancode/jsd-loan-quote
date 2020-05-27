@@ -6,7 +6,7 @@ function App() {
 
   // definir el State
   const [cantidad, setCantidad] = useState(0) // valor inicial en 0 
-  const [plazo, setPlazo] = useState(0)
+  const [plazo, setPlazo] = useState('')
 
   return (
     <Fragment>

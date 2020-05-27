@@ -1,11 +1,24 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 
 const Form = ({cantidad, setCantidad, plazo, setPlazo}) => {
 
+  // Definir State
+  const [error, setError] = useState(false)
+
+  // Cuando el usuario hace submit
+  const calcularPrestamo = e => {
+    e.preventDefault()
+    console.log('Calculando...');
+    if( cantidad === 0 || plazo === '') {
+      setError(true)
+    } else {
+      setError(false )
+    }
+  }
+
   return (
     <Fragment>
-      <form>
-<p>{plazo}</p>
+      <form onSubmit={ calcularPrestamo }>
         <div className="row">
           <div>
             <label>Cantidad Prestamo</label>
