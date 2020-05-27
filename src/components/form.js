@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
 
-const Form = ({cantidad, setCantidad}) => {
+const Form = ({cantidad, setCantidad, plazo, setPlazo}) => {
 
   return (
     <Fragment>
       <form>
-<p>{cantidad}</p>
+<p>{plazo}</p>
         <div className="row">
           <div>
             <label>Cantidad Prestamo</label>
@@ -20,6 +20,7 @@ const Form = ({cantidad, setCantidad}) => {
             <label>Plazo para Pagar</label>
             <select
               className="u-full-width"
+              onChange={ e => setPlazo( parseInt(e.target.value) ) }
             >
               <option value="">Seleccionar</option>
               <option value="3">3 meses</option>

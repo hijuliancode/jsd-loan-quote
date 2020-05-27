@@ -6,6 +6,7 @@ function App() {
 
   // definir el State
   const [cantidad, setCantidad] = useState(0) // valor inicial en 0 
+  const [plazo, setPlazo] = useState(0)
 
   return (
     <Fragment>
@@ -14,6 +15,8 @@ function App() {
         <Form
           cantidad={cantidad}
           setCantidad={setCantidad}
+          plazo={plazo}
+          setPlazo={setPlazo}
         />
       </div>
     </Fragment>
