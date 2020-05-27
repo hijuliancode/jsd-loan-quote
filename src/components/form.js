@@ -9,13 +9,14 @@ const Form = ({cantidad, setCantidad, plazo, setPlazo}) => {
   // Cuando el usuario hace submit
   const calcularPrestamo = e => {
     e.preventDefault()
-    console.log('Calculando...');
     if( !cantidad || plazo === '') {
       setError(true)
       return; // Para que no continue a la siguiente linea
     }
     setError(false )
-    calcularTotal(cantidad, plazo)
+    let total = calcularTotal(cantidad, plazo)
+    console.log(total);
+    
   }
 
   return (
